@@ -11,8 +11,16 @@ if the document doesn't contain the answer, the model says so.
 
 ![Archive screenshot](docs/screenshot.jpg)
 
-Built entirely on free tiers — Google Gemini's free API tier and Supabase's
-free Postgres tier — no credit card required to run it yourself.
+This project was built to get real, hands-on depth with the full RAG
+pattern end-to-end — not just wiring an API call, but the whole pipeline:
+chunking strategy, embedding generation, vector similarity search, and
+prompt-grounded generation, plus the operational realities that only show up
+once something is actually deployed (PDF parsing quirks, model
+deprecations, vector index tuning, serverless bundling gotchas). Every issue
+documented in the Engineering Notes section below was found by actually
+running the app and fixing what broke, not written once and assumed
+correct — the outcome is a fully working, deployed, end-to-end RAG
+application with real debugging experience across the whole stack.
 
 ---
 
@@ -21,12 +29,12 @@ free Postgres tier — no credit card required to run it yourself.
 | Layer | Technology | Why |
 |---|---|---|
 | Frontend + API | **Next.js 14** (App Router), React, Tailwind CSS | Single deployable app — UI and backend API routes in one codebase |
-| Vector database | **Supabase** (Postgres + `pgvector` extension) | Free-tier Postgres with native vector similarity search, no separate vector DB to run |
+| Vector database | **Supabase** (Postgres + `pgvector` extension) | Native vector similarity search inside Postgres, no separate vector DB to run |
 | File storage | **Supabase Storage** | Holds the original uploaded PDFs for the preview feature |
-| Embeddings | **Gemini `gemini-embedding-001`** (768 dimensions) | Free-tier text embeddings from Google's GenAI API |
-| Answer generation | **Gemini `gemini-flash-latest`**, with automatic fallback to `gemini-flash-lite-latest` | Fast, free-tier generation; the fallback model has an independently-tracked daily quota, so exhausting one doesn't stop the app |
+| Embeddings | **Gemini `gemini-embedding-001`** (768 dimensions) | Text embeddings from Google's GenAI API |
+| Answer generation | **Gemini `gemini-flash-latest`**, with automatic fallback to `gemini-flash-lite-latest` | Fast generation; the fallback model has an independently-tracked usage quota, so exhausting one doesn't stop the app |
 | PDF parsing | **pdfjs-dist** (Mozilla's PDF.js, used directly) | Extracts text from real-world PDFs, including ones with malformed structure |
-| Hosting | **Vercel** | Zero-config deploys from GitHub, generous free tier |
+| Hosting | **Vercel** | Zero-config deploys from GitHub, connected to this repo for continuous deployment |
 
 ---
 
@@ -120,13 +128,11 @@ A couple of things worth specifically testing:
 
 ## Setup (15–20 minutes)
 
-### 1. Get a free Gemini API key
-Go to https://aistudio.google.com/apikey → "Create API key". No credit card
-needed for the free tier.
+### 1. Get a Gemini API key
+Go to https://aistudio.google.com/apikey → "Create API key".
 
-### 2. Create a free Supabase project
-Go to https://supabase.com → New project (free tier is plenty for this).
-Once it's created:
+### 2. Create a Supabase project
+Go to https://supabase.com → New project. Once it's created:
 - Go to **SQL Editor** → paste the contents of `supabase/schema.sql` → Run.
   This creates the `documents` and `chunks` tables, enables `pgvector`, and
   adds the similarity-search function.
@@ -216,8 +222,8 @@ table by scanning the file for objects instead of just failing.
 doesn't break again the next time a specific dated model gets retired —
 Google keeps the alias pointed at its current recommended flash model.
 
-**Daily quota fallback.** Gemini's free tier caps `generateContent` at a
-small number of requests per day, tracked **per exact model name**.
+**Daily quota fallback.** Gemini's API caps `generateContent` at a limited
+number of requests per day, tracked **per exact model name**.
 `lib/gemini.js` tries `gemini-flash-latest` first and, only if that specific
 model's daily quota is exhausted, automatically falls back to
 `gemini-flash-lite-latest` — a completely separate quota bucket — before
