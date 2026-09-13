@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #edeae2;
+  color: #14171f;
+}
+
+.citation-marker {
+  font-family: "IBM Plex Mono", monospace;
+  color: #b5533c;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #b5533c;
+  outline-offset: 2px;
+}
+.focus-ring:focus:not(:focus-visible) {
+  outline: none;
+}
