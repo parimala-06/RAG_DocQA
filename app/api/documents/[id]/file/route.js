@@ -28,11 +28,16 @@ export async function GET(req, { params }) {
 
     const { data: signed, error: signError } = await supabase.storage
       .from("documents")
-      .createSignedUrl(doc.storage_path, 60);
+      .createSignedUrl(doc.storage_path, 300);
 
     if (signError) throw signError;
 
-    return NextResponse.redirect(signed.signedUrl);
+    // no-store: a 307 is otherwise cacheable, and a cached copy would replay
+    // an already-expired signed URL if this link is opened again later
+    // (e.g. from browser history) well past the signed URL's TTL.
+    return NextResponse.redirect(signed.signedUrl, {
+      headers: { "Cache-Control": "no-store" },
+    });
   } catch (err) {
     console.error(`GET /api/documents/${params?.id}/file failed:`, err);
     return NextResponse.json({ error: err.message }, { status: 500 });
