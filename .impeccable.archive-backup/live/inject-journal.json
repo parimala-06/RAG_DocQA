@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "appRoot": "E:\\AIProjects\\doc-qa-rag",
+  "framework": "nextjs",
+  "port": 8400,
+  "pid": 6524,
+  "recordedAt": "2026-09-16T06:11:40.166Z",
+  "artifacts": [
+    {
+      "kind": "patched",
+      "path": "app/layout.jsx",
+      "patch": "live-tag",
+      "markers": [
+        "impeccable-live-start",
+        "data-impeccable-csp-original"
+      ]
+    }
+  ]
+}

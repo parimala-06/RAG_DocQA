@@ -1,0 +1,11 @@
+{
+  "id": "50395d65",
+  "operation": "discard",
+  "variantId": null,
+  "result": {
+    "handled": true,
+    "file": "app\\page.jsx",
+    "carbonize": false
+  },
+  "completedAt": "2026-09-16T06:27:56.123Z"
+}

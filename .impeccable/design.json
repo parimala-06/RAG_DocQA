@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:00:00.000Z",
+  "title": "Design System: Waypoint",
+  "extensions": {
+    "colorMeta": {
+      "night": { "role": "neutral", "displayName": "Night", "canonical": "#0E1524", "tonalRamp": ["#000000", "#060911", "#0E1524", "#182035", "#2A3348", "#454F6B", "#6E7996", "#A6AFC4"] },
+      "cream": { "role": "neutral", "displayName": "Cream", "canonical": "#FFF9F2", "tonalRamp": ["#1E1B14", "#3B3627", "#5C543C", "#827656", "#AB9C77", "#D2C6A3", "#EDE4D0", "#FFF9F2"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#16182B", "tonalRamp": ["#000000", "#0B0C16", "#16182B", "#282B47", "#3F4468", "#5F6690", "#8B93B8", "#C3C8DC"] },
+      "mist": { "role": "neutral", "displayName": "Mist", "canonical": "#F3F6FB", "tonalRamp": ["#1B2436", "#303E58", "#4C5D80", "#7085A8", "#9BB0CB", "#C6D3E5", "#E2E9F3", "#F3F6FB"] },
+      "muted": { "role": "neutral", "displayName": "Muted Slate", "canonical": "#6B7280", "tonalRamp": ["#111214", "#212327", "#363940", "#4D515A", "#6B7280", "#8D92A0", "#B4B8C2", "#DBDDE2"] },
+      "teal": { "role": "primary", "displayName": "Waypoint Teal", "canonical": "#2FD9A8", "tonalRamp": ["#04120D", "#0A2A1F", "#124532", "#1A6247", "#0E7C5F", "#2FD9A8", "#7FEDCA", "#C9F7E5"] },
+      "teal-deep": { "role": "primary", "displayName": "Waypoint Teal Deep", "canonical": "#0E7C5F", "tonalRamp": ["#020F0A", "#062117", "#0B3626", "#0E7C5F", "#159A78", "#3DBB9B", "#83D8BF", "#C3EEE0"] },
+      "coral": { "role": "secondary", "displayName": "Sunset Coral", "canonical": "#FF6B4A", "tonalRamp": ["#2C0E06", "#4C1B0F", "#701F09", "#C23F24", "#FF6B4A", "#FF9376", "#FFBBA5", "#FFDDD1"] },
+      "coral-deep": { "role": "secondary", "displayName": "Sunset Coral Deep", "canonical": "#C23F24", "tonalRamp": ["#1D0904", "#37110A", "#571A10", "#C23F24", "#E05A34", "#F0855F", "#F8B29A", "#FCDACC"] },
+      "alert": { "role": "tertiary", "displayName": "Alert Red", "canonical": "#DC2626", "tonalRamp": ["#2C0505", "#4C0909", "#7A1010", "#A81717", "#DC2626", "#E8605C", "#F19995", "#F9CBC9"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (Syne)", "purpose": "Headline moments only: wordmark, empty-state line, modal/dialog titles, tour heading." },
+      "body": { "displayName": "Body (IBM Plex Sans)", "purpose": "Everything else: paragraphs, buttons, labels, the chat thread." },
+      "numeric": { "displayName": "Numeric (IBM Plex Mono)", "purpose": "Tabular counts, citation indices, status readouts only." }
+    },
+    "shadows": [
+      { "name": "glow", "value": "0 8px 24px -8px rgba(47, 217, 168, 0.45)", "purpose": "Under primary teal actions and question bubbles — this system's signature depth cue." },
+      { "name": "glow-coral", "value": "0 8px 24px -8px rgba(255, 107, 74, 0.45)", "purpose": "Reserved for coral-accented moments." },
+      { "name": "card", "value": "0 2px 16px -4px rgba(14, 21, 36, 0.12)", "purpose": "Paper surfaces on the cream reading column." },
+      { "name": "card-dark", "value": "0 4px 20px -6px rgba(0, 0, 0, 0.45)", "purpose": "Elevated surfaces on the night rail." }
+    ],
+    "motion": [
+      { "name": "excerpt-settle", "value": "180-200ms ease-out, opacity 0->1 + scale 0.98->1 + translateY -4px->0", "purpose": "Citation excerpt panel, tour spotlight, and tour callout entrance; guarded by prefers-reduced-motion." },
+      { "name": "pulse-dot", "value": "1.2s ease-in-out infinite, opacity 1<->0.35", "purpose": "Live status indicator during upload/ask; disabled under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The Ask button — full pill, teal-deep fill, glow shadow.",
+      "html": "<button class=\"ds-btn-primary\">Ask</button>",
+      "css": ".ds-btn-primary { background:#0E7C5F; color:#F3F6FB; padding:10px 20px; border-radius:9999px; font-family:'IBM Plex Sans',sans-serif; font-weight:700; font-size:14px; border:none; cursor:pointer; box-shadow:0 8px 24px -8px rgba(47,217,168,0.45); transition:background-color 0.15s ease, color 0.15s ease; } .ds-btn-primary:hover { background:#2FD9A8; color:#0E1524; } .ds-btn-primary:focus-visible { outline:2px solid #0E7C5F; outline-offset:2px; } .ds-btn-primary:disabled { opacity:0.5; cursor:not-allowed; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Summarize, Guide — outline pill on the dark rail.",
+      "html": "<button class=\"ds-btn-secondary\">Summarize</button>",
+      "css": ".ds-btn-secondary { background:transparent; color:#93A0B8; border:1px solid #2A3348; border-radius:9999px; padding:4px 10px; font-family:'IBM Plex Sans',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; cursor:pointer; transition:border-color 0.15s ease, color 0.15s ease; } .ds-btn-secondary:hover { border-color:#2FD9A8; color:#2FD9A8; } .ds-btn-secondary:focus-visible { outline:2px solid #0E7C5F; outline-offset:2px; }"
+    },
+    {
+      "name": "Citation Badge",
+      "kind": "custom",
+      "refersTo": "citation-marker",
+      "description": "Signature component: a solid teal pill marking a claim's exact waypoint back to its source.",
+      "html": "<button class=\"ds-citation-badge\" aria-label=\"Show source excerpt 1\">1</button>",
+      "css": ".ds-citation-badge { display:inline-flex; align-items:center; gap:2px; background:#0E7C5F; color:#F3F6FB; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:11px; border:none; border-radius:9999px; padding:4px 8px 3px; cursor:pointer; transition:background-color 0.15s ease, transform 0.15s ease; } .ds-citation-badge::before { content:'\\2713'; } .ds-citation-badge:hover { background:#2FD9A8; color:#0E1524; transform:translateY(-1px); } .ds-citation-badge:focus-visible { outline:2px solid #0E7C5F; outline-offset:2px; }"
+    },
+    {
+      "name": "Excerpt Panel",
+      "kind": "custom",
+      "refersTo": "excerpt-panel",
+      "description": "The teal-tinted card a citation badge opens onto, holding the exact retrieved passage.",
+      "html": "<div class=\"ds-excerpt-panel\"><div class=\"ds-excerpt-label\">Source 1 &middot; handbook.pdf</div>Excerpt text goes here.</div>",
+      "css": ".ds-excerpt-panel { background:#E4FAF2; border-radius:12px; padding:12px; font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#16182B; } .ds-excerpt-label { font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:11px; color:#0E7C5F; margin-bottom:4px; font-variant-numeric:tabular-nums; }"
+    },
+    {
+      "name": "Question Bubble",
+      "kind": "custom",
+      "refersTo": "chat-bubble-question",
+      "description": "The visitor's own question in the thread — filled teal-deep, glow shadow, right-aligned.",
+      "html": "<div class=\"ds-bubble-question\">What's the refund window?</div>",
+      "css": ".ds-bubble-question { background:#0E7C5F; color:#F3F6FB; border-radius:16px 16px 6px 16px; padding:12px 20px; font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:16px; box-shadow:0 8px 24px -8px rgba(47,217,168,0.45); display:inline-block; }"
+    },
+    {
+      "name": "Ask Input",
+      "kind": "input",
+      "refersTo": "input-question",
+      "description": "The ask form's pill-shaped container with the send button inline.",
+      "html": "<form class=\"ds-ask-form\"><input class=\"ds-ask-input\" placeholder=\"Ask a question about your documents\\u2026\" /><button class=\"ds-btn-primary\">Ask</button></form>",
+      "css": ".ds-ask-form { display:flex; align-items:center; gap:6px; background:#FFFFFF; border-radius:9999px; box-shadow:0 2px 16px -4px rgba(14,21,36,0.12); padding:6px; } .ds-ask-input { flex:1; background:transparent; border:none; padding:10px 16px; font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#16182B; } .ds-ask-input::placeholder { color:#6B7280; } .ds-ask-input:focus { outline:none; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Waypoint",
+    "overview": "This replaces the 'Tie-Out Ledger' system (quiet olive/paper accounting world) by explicit user direction: the ledger read as flat and lifeless, and the brief asked for a theme inspired by a bold consumer travel brand — deep navy surfaces, one vivid teal CTA color, warm complementary accents, confident bold type, generous rounding, soft glow instead of hairline rules. Waypoint keeps the product's real mechanism (retrieval-augmented answers with checkable citations) but dresses it the way a travel app dresses a trip: dark hero surfaces, a teal 'go' color, and warmth instead of restraint.",
+    "keyCharacteristics": [
+      "Warm-dark rail (night) holding the document index, paired with a bright cream reading column — high contrast between the two regions, not tonal sameness.",
+      "One cool accent (teal) drives every primary action and the citation badge; one warm accent (coral) marks the guided tour and small warmth moments — a deliberate complementary pair.",
+      "Generous rounding (12-16px on cards, full pill on buttons and badges) and soft glow shadows replace the ledger's zero-radius, zero-shadow doctrine.",
+      "Bold type does real hierarchy work: Syne at 800 weight for headline moments, IBM Plex Sans for everything else, IBM Plex Mono with tabular figures for counts only.",
+      "No side-tab borders. Cards get their identity from fill color, radius, and shadow — never a thick colored border on one edge."
+    ],
+    "rules": [
+      { "name": "The Complementary-Pair Rule", "body": "Exactly two accents exist — teal (cool, primary/action/citation) and coral (warm, tour/highlight only) — chosen as a deliberate complementary pair, never a single muted hue doing all the work.", "section": "colors" },
+      { "name": "The Headline-Moment Rule", "body": "Syne is reserved for the handful of places a visitor's eye should land first. It never sets a paragraph, a button label, or the chat thread.", "section": "typography" }
+    ],
+    "dos": [
+      "Do keep exactly two accents — teal for action/citation, coral for the tour/highlight only — as a complementary pair.",
+      "Do round every card and button; this system has no sharp corners.",
+      "Do let question bubbles and the Ask button carry shadow-glow — glow is this system's signature depth cue.",
+      "Do reserve Syne for headline moments; body and buttons stay in Plex Sans.",
+      "Do guard every animation behind prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't add a thick colored border on one edge of a card (a side-tab) — this system gets its identity from fill, radius, and glow instead.",
+      "Don't set body copy, chat text, or button labels in Syne.",
+      "Don't use coral as small text — it fails contrast; use coral-deep.",
+      "Don't let the guided tour block or alter any real upload/ask/document action — it only explains, never intercepts.",
+      "Don't imply private accounts or per-user scoping; the corpus stays shared and unauthenticated (unchanged product constraint)."
+    ]
+  }
+}

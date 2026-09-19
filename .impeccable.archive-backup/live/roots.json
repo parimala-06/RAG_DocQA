@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "appRoot": "E:\\AIProjects\\doc-qa-rag",
+  "repoRoot": "E:\\AIProjects\\doc-qa-rag",
+  "contextRoot": "E:\\AIProjects\\doc-qa-rag",
+  "sessionRoot": "E:\\AIProjects\\doc-qa-rag\\.impeccable\\live",
+  "productPath": "E:\\AIProjects\\doc-qa-rag\\PRODUCT.md",
+  "designPath": "E:\\AIProjects\\doc-qa-rag\\DESIGN.md",
+  "resolvedFrom": "cwd"
+}

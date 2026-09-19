@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-16T09:00:00.000Z",
+  "title": "Design System: Archive",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#15170F",
+        "tonalRamp": ["#050603", "#0D0F09", "#15170F", "#2B2F1E", "#454B30", "#656C48", "#8E9668", "#C1C9A0"]
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Page White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#2B2C28", "#41423C", "#5A5C52", "#7A7C6E", "#A2A594", "#C7CABB", "#FFFFFF", "#FFFFFF"]
+      },
+      "rail": {
+        "role": "secondary",
+        "displayName": "Sage / Rail",
+        "canonical": "#DCE6D2",
+        "tonalRamp": ["#242A1D", "#39422C", "#505C3D", "#6E7C54", "#94A374", "#BECBA5", "#DCE6D2", "#F0F4EA"]
+      },
+      "panel": {
+        "role": "secondary",
+        "displayName": "Panel",
+        "canonical": "#F1F5EC",
+        "tonalRamp": ["#282B22", "#3D4133", "#565B46", "#767C61", "#9DA487", "#C4CBB4", "#F1F5EC", "#FAFBF8"]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#565A4E",
+        "tonalRamp": ["#121309", "#212215", "#313521", "#434A2E", "#565A4E", "#7B806E", "#A6AB97", "#D3D6C9"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#BFCBAF",
+        "tonalRamp": ["#232A17", "#374125", "#4F5B36", "#6E7B4C", "#93A16C", "#B6C193", "#BFCBAF", "#E9EDE0"]
+      },
+      "olive": {
+        "role": "primary",
+        "displayName": "Olive",
+        "canonical": "#46592E",
+        "tonalRamp": ["#0F140A", "#1D2612", "#2C381C", "#3B4B27", "#46592E", "#647A48", "#93A578", "#C7D4B4"]
+      },
+      "olive-deep": {
+        "role": "primary",
+        "displayName": "Olive Deep",
+        "canonical": "#313F1F",
+        "tonalRamp": ["#080B04", "#111709", "#1D260F", "#283317", "#313F1F", "#4B5E30", "#71875010", "#A9BB8C"]
+      },
+      "marker": {
+        "role": "tertiary",
+        "displayName": "Marker Yellow",
+        "canonical": "#F3E85C",
+        "tonalRamp": ["#33300A", "#4E4A12", "#6B651B", "#8C8426", "#AEA431", "#CFC441", "#F3E85C", "#F9F3A6"]
+      },
+      "marker-deep": {
+        "role": "tertiary",
+        "displayName": "Marker Deep",
+        "canonical": "#E5D53F",
+        "tonalRamp": ["#2F2C0A", "#484211", "#655D18", "#847A20", "#A49828", "#C4B633", "#E5D53F", "#F1E78A"]
+      },
+      "alert": {
+        "role": "tertiary",
+        "displayName": "Alert Red",
+        "canonical": "#A32820",
+        "tonalRamp": ["#280A07", "#3F100B", "#591710", "#771E15", "#8F241A", "#A32820", "#C9564C", "#E9A8A2"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The Archive wordmark only." },
+      "headline": { "displayName": "Headline", "purpose": "Empty-state opening line and summary dialog title." },
+      "title": { "displayName": "Title", "purpose": "The question text inside its sage card; also rail filenames at 0.95rem." },
+      "subtitle": { "displayName": "Subtitle", "purpose": "Rail document filenames." },
+      "body": { "displayName": "Body", "purpose": "The answer text, held to a 64ch measure." },
+      "excerpt": { "displayName": "Excerpt", "purpose": "A revealed source passage, one step down from body." },
+      "caption": { "displayName": "Caption", "purpose": "Supporting serif prose — empty state intro, citation hint." },
+      "label": { "displayName": "Label", "purpose": "Region/status labels and button text." },
+      "label-strong": { "displayName": "Label Strong", "purpose": "The Ask button only." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.22, 0.7, 0.25, 1)", "purpose": "The page's one easing, --ease." },
+      { "name": "dur-standard", "value": "170ms", "purpose": "The page's one duration, --dur." },
+      { "name": "hl-sweep", "value": "560ms cubic-bezier(0.22, 0.7, 0.25, 1)", "purpose": "Draws the highlighter band when a passage is revealed." },
+      { "name": "slide-bar", "value": "1.2s ease-in-out infinite", "purpose": "Indeterminate progress, now olive instead of yellow." },
+      { "name": "confirm-countdown", "value": "4000ms linear forwards", "purpose": "The armed-delete countdown rule." }
+    ],
+    "breakpoints": [{ "name": "md", "value": "768px" }]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Ask)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action that drives the product forward. Ink at rest, fills olive-deep on hover — the only place olive appears as a solid fill.",
+      "html": "<button class=\"ds-btn-primary\">Ask</button>",
+      "css": ".ds-btn-primary { background: #15170F; color: #FFFFFF; border: 1px solid #15170F; border-radius: 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; padding: 0.75rem 1.5rem; cursor: pointer; transition: background-color 170ms cubic-bezier(0.22,0.7,0.25,1), border-color 170ms cubic-bezier(0.22,0.7,0.25,1), transform 170ms cubic-bezier(0.22,0.7,0.25,1); } .ds-btn-primary:hover { background: #313F1F; border-color: #313F1F; transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid #15170F; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Every non-primary action (Cancel, Summarize, Close, Ask again, Got it). White fill, ink border, fills sage with olive-deep text on hover.",
+      "html": "<button class=\"ds-btn\">Summarize</button>",
+      "css": ".ds-btn { background: #FFFFFF; color: #15170F; border: 1px solid #15170F; border-radius: 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 0.25rem 0.625rem; cursor: pointer; transition: background-color 170ms cubic-bezier(0.22,0.7,0.25,1), border-color 170ms cubic-bezier(0.22,0.7,0.25,1), color 170ms cubic-bezier(0.22,0.7,0.25,1), transform 170ms cubic-bezier(0.22,0.7,0.25,1); } .ds-btn:hover { background: #DCE6D2; border-color: #313F1F; color: #313F1F; transform: translateY(-1px); } .ds-btn:disabled { opacity: 0.4; }"
+    },
+    {
+      "name": "Danger Button (Delete)",
+      "kind": "button",
+      "refersTo": "button-danger-armed",
+      "description": "A secondary-button modifier. Same rest state; hover turns alert red instead of olive. Armed state commits to a solid alert fill with a countdown rule.",
+      "html": "<button class=\"ds-btn ds-btn-danger\" data-armed=\"false\">Delete</button>",
+      "css": ".ds-btn-danger:hover:not(:disabled):not([data-armed='true']) { background: #FFFFFF; border-color: #A32820; color: #A32820; } .ds-btn-danger[data-armed='true'] { background: #A32820; border-color: #A32820; color: #FFFFFF; }"
+    },
+    {
+      "name": "Question Card",
+      "kind": "card",
+      "refersTo": "card-question",
+      "description": "Sage background — the same hue as the document rail — signalling 'this came from you.' Always paired against a differently-colored answer card.",
+      "html": "<div class=\"ds-card-question\"><p class=\"ds-label\">You asked</p><h2 class=\"ds-question-text\">What's the notice period?</h2></div>",
+      "css": ".ds-card-question { background: #DCE6D2; border: 1px solid #BFCBAF; padding: 1.25rem 1.5rem; } .ds-label { margin: 0 0 0.4rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em; color: #565A4E; } .ds-question-text { margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-variation-settings: 'wdth' 92, 'opsz' 32; font-size: 1.65rem; font-weight: 700; line-height: 1.2; color: #15170F; }"
+    },
+    {
+      "name": "Answer Card",
+      "kind": "card",
+      "refersTo": "card-answer",
+      "description": "Pale panel background — never the same color as a question card — signalling 'this is the archive's response.' Turns alert-tinted on error.",
+      "html": "<div class=\"ds-card-answer\"><p class=\"ds-label\">Archive answered</p><p class=\"ds-answer-text\">The policy caps coverage at $2,000,000 per occurrence <span class=\"ds-citation\">1</span>.</p></div>",
+      "css": ".ds-card-answer { background: #F1F5EC; border: 1px solid #BFCBAF; padding: 1.5rem 2rem; } .ds-answer-text { margin: 0; font-family: Newsreader, Georgia, serif; font-size: 1.08rem; line-height: 1.75; color: #15170F; }"
+    },
+    {
+      "name": "Citation Marker",
+      "kind": "custom",
+      "refersTo": "citation-marker",
+      "description": "The signature element and the ONLY resting use of yellow in the system. A chisel-tipped mark behind a mono number, skewed, deliberately not a rounded chip.",
+      "html": "<button class=\"ds-citation\">1</button>",
+      "css": ".ds-citation { position: relative; isolation: isolate; display: inline-block; background: none; border: none; font-family: 'IBM Plex Mono', monospace; font-size: 0.74em; font-weight: 500; line-height: 1; color: #15170F; padding: 0.14em 0.2em; margin: 0 0 0 0.1em; vertical-align: 0.08em; cursor: pointer; } .ds-citation::before { content: \"\"; position: absolute; inset: 0 -0.08em; z-index: -1; background: #F3E85C; border-radius: 0.05em; transform: skewX(-10deg); transition: background-color 170ms cubic-bezier(0.22,0.7,0.25,1), transform 170ms cubic-bezier(0.22,0.7,0.25,1); } .ds-citation:hover::before { background: #E5D53F; transform: skewX(-10deg) scaleY(1.14); }"
+    },
+    {
+      "name": "Highlighted Passage",
+      "kind": "custom",
+      "refersTo": "citation-marker",
+      "description": "The other resting use of yellow. The gradient stops at 6%/94% so the band sits inside cap height like a real highlighter stroke.",
+      "html": "<p class=\"ds-passage\"><span class=\"ds-hl\">Coverage is limited to $2,000,000 per occurrence.</span></p>",
+      "css": ".ds-passage { font-family: Newsreader, Georgia, serif; font-size: 1rem; line-height: 1.7; color: #15170F; margin: 0; } .ds-hl { background-image: linear-gradient(transparent 6%, #F3E85C 6%, #F3E85C 94%, transparent 94%); background-repeat: no-repeat; background-size: 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 0.14em; }"
+    },
+    {
+      "name": "Upload Drop Zone",
+      "kind": "custom",
+      "refersTo": "button-secondary",
+      "description": "The only dashed border in the system — a different border STYLE, not just color, from every button. Turns olive, not yellow, while a file is dragged over it.",
+      "html": "<div class=\"ds-dropzone\"><p class=\"ds-dropzone-title\">Drop a PDF here</p><p class=\"ds-dropzone-meta\">or click to browse · max 10MB</p></div>",
+      "css": ".ds-dropzone { background: transparent; border: 1px dashed rgba(21,23,15,0.35); padding: 1.75rem 1rem; text-align: center; cursor: pointer; transition: border-color 170ms cubic-bezier(0.22,0.7,0.25,1), background-color 170ms cubic-bezier(0.22,0.7,0.25,1); } .ds-dropzone:hover { border-color: rgba(21,23,15,0.6); background: rgba(21,23,15,0.03); } .ds-dropzone.drag-active { border-style: solid; border-color: #313F1F; background: rgba(70,89,46,0.1); } .ds-dropzone-title { margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 1.125rem; font-weight: 600; color: #15170F; } .ds-dropzone-meta { margin: 0.375rem 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: #565A4E; }"
+    },
+    {
+      "name": "Indeterminate Progress",
+      "kind": "custom",
+      "refersTo": "button-secondary",
+      "description": "A sliding olive bar across a 1px rule. Never yellow — progress is not evidence.",
+      "html": "<div class=\"ds-progress\"><div class=\"ds-progress-track\"><div class=\"ds-progress-bar\"></div></div><p class=\"ds-progress-label\">Searching the archive</p></div>",
+      "css": ".ds-progress { display: flex; align-items: center; gap: 0.75rem; } .ds-progress-track { width: 5rem; height: 1px; background: #BFCBAF; overflow: hidden; } .ds-progress-bar { height: 100%; width: 33.333%; background: #46592E; animation: ds-slide 1.2s ease-in-out infinite; } .ds-progress-label { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: #565A4E; } @keyframes ds-slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(400%); } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "An olive-and-sage reading room, with one yellow reserved for evidence",
+    "overview": "This is a redesign, not a refinement — it replaces the prior palette with a deliberate three-tier system: ink for every word on the page, olive and sage as the one living accent family, white as the canvas the answer sits on. Nothing else.\n\nTwo rules anchor everything else. First: yellow means evidence, full stop. It appears in exactly two places — the band behind a retrieved passage, and the tilted mark behind a citation number — and nowhere else in the interface: not hover, not drag states, not progress bars, not banners. Second: every control is visibly a control. Every button carries a 1px border at rest, and hover always moves both the border and a fill/text color together, so nothing changes state ambiguously.\n\nThe product's core loop is a conversation, so the two sides get different colors on purpose: a question is sage — the same sage as the document rail, tying 'what you asked' to 'your documents' — and an answer is pale panel white, tying 'what came back' to the neutral canvas it's read on.",
+    "keyCharacteristics": [
+      "Three-tier palette: ink (text), olive/sage (the one accent family), white (canvas)",
+      "Yellow (#F3E85C) appears only in the highlighted passage band and the citation marker",
+      "Every button has a visible border at rest; hover moves border and fill/text together",
+      "Questions render on sage (rail); answers render on pale panel white",
+      "Zero border radius everywhere except the hand-cut citation mark",
+      "No shadows; depth is tonal difference and 1px rules"
+    ],
+    "rules": [
+      { "name": "The Evidence-Only Rule", "body": "Yellow marks evidence and nothing else: the highlighted-passage band and the citation marker. No exceptions, including hover, drag, and progress states, which all use olive instead.", "section": "colors" },
+      { "name": "The You/Archive Rule", "body": "Sage (rail) means input from the visitor — the document rail and every question card. Panel means output from the archive — every answer card, the input field, the dialog. A surface never switches sides.", "section": "colors" },
+      { "name": "The Bordered-Control Rule", "body": "Every button has a 1px ink border at rest. No borderless text-link buttons anywhere in the app.", "section": "colors" },
+      { "name": "The Three-Voice Rule", "body": "Grotesque announces, serif reads, mono labels. A typeface never crosses into another's job.", "section": "typography" },
+      { "name": "The Set-Both-Axes Rule", "body": "Bricolage is variable on width and optical size. Any new display type sets font-variation-settings explicitly.", "section": "typography" },
+      { "name": "The Measure Rule", "body": "Reading text never exceeds 64ch.", "section": "typography" }
+    ],
+    "dos": [
+      "Do keep yellow to exactly two places: the highlighted passage band and the citation marker.",
+      "Do give every button a 1px ink border at rest, with a hover that moves border and fill/text together.",
+      "Do render questions on bg-rail (sage) and answers on bg-panel (pale white) — never the same surface.",
+      "Do use olive only on interaction or as the primary button's hover fill — never as a resting decoration.",
+      "Do keep the dropzone dashed, distinct in border style from every solid-bordered button.",
+      "Do write status and error text as plain declarative sentences.",
+      "Do guard every animation behind prefers-reduced-motion: reduce."
+    ],
+    "donts": [
+      "Don't use yellow for hover, drag states, progress bars, banners, or any decoration.",
+      "Don't ship a borderless button.",
+      "Don't let a question and an answer share a background color.",
+      "Don't add box-shadow to anything.",
+      "Don't round corners, add pills, or normalize the citation marker's chisel shape.",
+      "Don't introduce a fourth typeface, or set prose in IBM Plex Mono.",
+      "Don't imply private accounts, personal libraries, or per-user scoping."
+    ]
+  }
+}
