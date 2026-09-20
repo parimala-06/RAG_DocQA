@@ -9,7 +9,7 @@ if the document doesn't contain the answer, the model says so.
 **🔗 Live demo:** https://doc-qa-rag-black.vercel.app
 **📦 Source:** https://github.com/parimala-06/RAG_DocQA
 
-![Archive screenshot](docs/screenshot.jpg)
+![Archive — a cited answer with its source excerpt expanded](docs/ui-3-cited-answer.png)
 
 This project was built to get real, hands-on depth with the full RAG
 pattern end-to-end — not just wiring an API call, but the whole pipeline:
@@ -21,6 +21,34 @@ documented in the Engineering Notes section below was found by actually
 running the app and fixing what broke, not written once and assumed
 correct — the outcome is a fully working, deployed, end-to-end RAG
 application with real debugging experience across the whole stack.
+
+---
+
+## Screenshots
+
+**Grounded answers, with proof.** Every claim carries a numbered citation
+marker; clicking it expands the exact passage the answer was drawn from.
+(Shown above.)
+
+**Honest when the document doesn't say.** Asked something the uploaded
+documents don't contain, it says so instead of guessing.
+
+![Out-of-scope question: the model states the excerpts don't contain the answer](docs/ui-4-grounded-refusal.png)
+
+**Summarize a whole document.** One click reassembles the document from its
+chunks and produces a plain-prose summary.
+
+![Document summary popup](docs/ui-5-summary.png)
+
+**Guided tour for first-time visitors.** A two-step walkthrough highlights
+where to upload and where to ask; the **Guide** button replays it any time.
+
+![Guided tour highlighting the upload zone](docs/ui-1-guided-tour.png)
+
+**Responsive.** The document index stacks above the conversation on small
+screens.
+
+<img src="docs/ui-6-mobile.png" alt="Mobile layout" width="320">
 
 ---
 
@@ -91,6 +119,8 @@ Beyond ask-a-question, the left panel gives you a small toolkit per document:
   asks Gemini for a plain-prose summary, shown in a popup.
 - **Preview** (eye icon) — opens the original PDF in a new tab via a
   short-lived signed Supabase Storage URL.
+- **Guide** — a short first-visit tour of the upload zone and the question
+  box, replayable from the button at the top of the panel.
 - **Delete** — click once to arm, click again within 4 seconds to confirm
   (no jarring native browser dialog). Removes the document and cascades to
   delete all its chunks.
